@@ -42,13 +42,18 @@ resource "aws_ebs_volume" "web_host_storage" {
     git_commit           = "d3439f0f2af62f6fa3521e14d6c27819ef8f12e1"
     git_file             = "terraform/aws/ec2.tf"
     git_last_modified_at = "2021-05-02 11:17:26"
+      
+      
     git_last_modified_by = "nimrodkor@users.noreply.github.com"
     git_modifiers        = "nimrodkor"
+      
     git_org              = "bridgecrewio"
     git_repo             = "terragoat"
     yor_trace            = "c5509daf-10f0-46af-9e03-41989212521d"
   })
 }
+
+
 
 resource "aws_ebs_snapshot" "example_snapshot" {
   # ebs snapshot without encryption
@@ -60,6 +65,8 @@ resource "aws_ebs_snapshot" "example_snapshot" {
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
     git_file             = "terraform/aws/ec2.tf"
     git_last_modified_at = "2020-06-16 14:46:24"
+      
+      
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
     git_org              = "bridgecrewio"
@@ -77,6 +84,7 @@ resource "aws_volume_attachment" "ebs_att" {
 resource "aws_security_group" "web-node" {
   # security group is open to the world in SSH port
   name        = "${local.resource_prefix.value}-sg"
+  
   description = "${local.resource_prefix.value} Security Group"
   vpc_id      = aws_vpc.web_vpc.id
 
