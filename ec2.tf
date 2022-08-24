@@ -11,6 +11,7 @@ resource "aws_instance" "web_host" {
 sudo apt-get update
 sudo apt-get install -y apache2
 sudo systemctl start apache2
+  
 sudo systemctl enable apache2
   
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMAAA
@@ -102,6 +103,7 @@ resource "aws_security_group" "web-node" {
     from_port = 22
     
     to_port   = 22
+    
     protocol  = "tcp"
     cidr_blocks = [
     "0.0.0.0/0"]
